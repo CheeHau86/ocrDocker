@@ -6,8 +6,6 @@ plumbum
 numpy
 ipython
 Pillow
-tensorflow
-tensorflow-gpu
 opencv-contrib-python
 pytesseract
 imutils
