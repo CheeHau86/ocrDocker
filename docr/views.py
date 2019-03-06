@@ -228,7 +228,7 @@ def checkOCR(OCRdata):
 	image_base64=json.loads(OCRdata.body)
 	
 	imgdata = base64.b64decode(image_base64)
-	filename = '../saeOcrDjango/test_images/converted_JSON.jpg'  
+	filename = 'converted_JSON.jpg'  
 	#filename = '../saeOcrDjango/test_images/converted_JSON.jpg'
 	with open(filename, 'wb') as f:
 		f.write(imgdata)
