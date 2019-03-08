@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.6
 ENV PYTHONUNBUFFERED 1
 RUN apt-get update
 RUN apt-get install python-pip python-dev -y
@@ -9,7 +9,6 @@ CMD ["source", "saeocrenv/bin/activate"]
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
-RUN pip install --no-cache-dir tensorflow-gpu
 RUN pip install -r requirements.txt
 ADD ./ /code/
 EXPOSE 8088
