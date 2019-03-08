@@ -3,8 +3,8 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update
 RUN apt-get install python3 python3-pip python-pip python-dev -y
 RUN pip3 install virtualenv
-RUN apt-get install python3-opencv
-RUN apt-get install tesseract-ocr 
+RUN apt-get install python-opencv -y
+RUN apt-get install tesseract-ocr -y
 RUN apt-get update
 RUN virtualenv saeocrenv
 CMD ["source", "saeocrenv/bin/activate"]
