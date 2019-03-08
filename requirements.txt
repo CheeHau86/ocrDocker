@@ -8,7 +8,6 @@ ipython
 Pillow
 opencv-contrib-python
 pytesseract
-tesseract-ocr
 imutils
 django
 django-extensions 
