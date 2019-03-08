@@ -9,7 +9,7 @@ CMD ["source", "saeocrenv/bin/activate"]
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
-RUN pip install --no-cache-dir tensorflow-gpu==1.4
+RUN pip3 install --no-cache-dir tensorflow-gpu==1.4
 RUN pip install -r requirements.txt
 ADD ./ /code/
 EXPOSE 8088
