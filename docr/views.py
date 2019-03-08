@@ -204,6 +204,7 @@ def write_to_json_file(output_filename,detected_information):
 
 	with open(output_filename, 'w') as outfile:
 		json.dump(data, outfile)
+	return JsonResponse("SER: "+SERN+" ; PNR: "+PNRN,safe=False)
 
 #
 # @brief function to read config file (JSON)
@@ -340,7 +341,6 @@ def checkOCR(OCRdata):
 						'{}_data.txt'.format(
 							os.path.basename(im_fn).split('.')[0]))
 					write_to_json_file(output_file,detected_information)
-					return JsonResponse("SER: "+SERN+" ; PNR: "+PNRN,safe=False)
 					
 if __name__ == '__main__':
     tf.app.run()
