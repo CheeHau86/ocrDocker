@@ -249,6 +249,9 @@ def checkOCR(OCRdata):
 	except OSError as e:
 		if e.errno != 17:
 			raise
+	
+	
+	tf.reset_default_graph() #to solve VALUE ERROR @2nd run, graph existed
 
 	with tf.get_default_graph().as_default():
 		input_images = tf.placeholder(tf.float32, shape=[None, None, None, 3], name='input_images')
