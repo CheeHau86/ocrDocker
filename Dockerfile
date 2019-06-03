@@ -14,6 +14,7 @@ WORKDIR /code
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN pip install tensorflow
+RUN apt-get update
 ADD ./ /code/
 EXPOSE 8088
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8088"]
