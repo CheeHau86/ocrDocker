@@ -10,5 +10,6 @@ opencv-contrib-python
 pytesseract
 imutils
 django
+bcrypt
 django-extensions 
 djangorestframework
