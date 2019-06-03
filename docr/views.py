@@ -23,9 +23,9 @@ from PIL import Image
 import json
 import base64
 
-tf.app.flags.DEFINE_string('test_data_path', '/home/ubuntu/ocrDocker/test_images/', '')
-tf.app.flags.DEFINE_string('checkpoint_path', '/home/ubuntu/ocrDocker/models/model_150ksteps/', '')
-tf.app.flags.DEFINE_string('output_dir', '/home/ubuntu/ocrDocker/test_results/', '')
+tf.app.flags.DEFINE_string('test_data_path', './test_images/', '')
+tf.app.flags.DEFINE_string('checkpoint_path', './models/model_150ksteps/', '')
+tf.app.flags.DEFINE_string('output_dir', './test_results/', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_bool('no_write_images', False, 'do not write images')
 
