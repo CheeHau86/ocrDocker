@@ -202,7 +202,7 @@ def write_to_json_file(output_filename,detected_information):
 		"SER":str(SER)[2:-2]
 	}
 	
-	print('----- [SER] -----: ' + SER  + ' ----- [PNR] -----: ' + PNR)
+	print('----- [SER] -----: ' + SERN  + ' ----- [PNR] -----: ' + PNRN)
 
 	with open(output_filename, 'w') as outfile:
 		json.dump(data, outfile)
