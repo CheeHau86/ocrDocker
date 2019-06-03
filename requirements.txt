@@ -6,6 +6,7 @@ scipy
 plumbum
 ipython
 Pillow
+tensorflow
 pytesseract
 imutils
 Shapely
