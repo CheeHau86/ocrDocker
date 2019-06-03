@@ -1,14 +1,14 @@
-Shapely
+opencv-contrib-python
+numpy
 Flask
 matplotlib
 scipy
 plumbum
-numpy
 ipython
 Pillow
-opencv-contrib-python
 pytesseract
 imutils
+Shapely
 django
 bcrypt
 django-extensions 
