@@ -23,9 +23,9 @@ from PIL import Image
 import json
 import base64
 
-#tf.app.flags.DEFINE_string('test_data_path', '/home/haofucv-2/AIRBUS/sae_ocr_east/test_images/', '')
-#tf.app.flags.DEFINE_string('checkpoint_path', '/home/haofucv-2/AIRBUS/sae_ocr_east/models/model_150ksteps/', '')
-#tf.app.flags.DEFINE_string('output_dir', '/home/haofucv-2/AIRBUS/sae_ocr_east/test_results/', '')
+tf.app.flags.DEFINE_string('test_data_path', '/home/ubuntu/ocrDocker/test_images/', '')
+tf.app.flags.DEFINE_string('checkpoint_path', '/home/ubuntu/ocrDocker/models/model_150ksteps/', '')
+tf.app.flags.DEFINE_string('output_dir', '/home/ubuntu/ocrDocker/test_results/', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_bool('no_write_images', False, 'do not write images')
 
@@ -242,9 +242,9 @@ def checkOCR(OCRdata):
 	
 	# Read Config from JSON File
 	test_image_directory, checkpoint_path, output_image_path, output_filename = read_config("config.txt")
-	tf.app.flags.DEFINE_string('test_data_path', test_image_directory, '')
-	tf.app.flags.DEFINE_string('checkpoint_path', checkpoint_path, '')
-	tf.app.flags.DEFINE_string('output_dir', output_image_path, '')
+	#tf.app.flags.DEFINE_string('test_data_path', test_image_directory, '')
+	#tf.app.flags.DEFINE_string('checkpoint_path', checkpoint_path, '')
+	#tf.app.flags.DEFINE_string('output_dir', output_image_path, '')
 	
 	try:
 		os.makedirs(FLAGS.output_dir)
