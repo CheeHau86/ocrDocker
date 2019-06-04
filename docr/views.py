@@ -23,9 +23,9 @@ from PIL import Image
 import json
 import base64
 
-tf.app.flags.DEFINE_string('test_data_path', './docr/test_images/', '')
-tf.app.flags.DEFINE_string('checkpoint_path', './models/model_150ksteps/', '')
-tf.app.flags.DEFINE_string('output_dir', './docr/test_results/', '')
+tf.app.flags.DEFINE_string('test_data_path', 'docr/test_images/', '')
+tf.app.flags.DEFINE_string('checkpoint_path', 'models/model_150ksteps/', '')
+tf.app.flags.DEFINE_string('output_dir', 'docr/test_results/', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_bool('no_write_images', False, 'do not write images')
 
@@ -46,7 +46,7 @@ def get_images():
     '''
     files = []
     exts = ['jpg', 'png', 'jpeg', 'JPG']
-    for parent, dirnames, filenames in os.walk(FLAGS.test_data_path):
+    for parent, dirnames, filenames in os.walk(docr/test_images/):
         for filename in filenames:
             for ext in exts:
                 if filename.endswith(ext):
@@ -230,7 +230,7 @@ def checkOCR(OCRdata):
 	image_base64=json.loads(OCRdata.body)
 	
 	imgdata = base64.b64decode(image_base64)
-	filename = './docr/test_images/converted_JSON.jpg'  
+	filename = 'docr/test_images/converted_JSON.jpg'  
 	#filename = '../saeOcrDjango/test_images/converted_JSON.jpg'
 	with open(filename, 'wb') as f:
 		f.write(imgdata)
@@ -266,8 +266,9 @@ def checkOCR(OCRdata):
 
 		with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
 			# Load the checkpoint
-			ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
-			model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
+			#ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
+			#model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
+			model_path = 'models/model_150ksteps/model.ckpt-150491'
 			print('Restore from {}'.format(model_path))
 			saver.restore(sess, model_path)
 			
@@ -302,11 +303,11 @@ def checkOCR(OCRdata):
 
 				# save to file
 				if boxes is not None:
-					res_file = os.path.join(
-						FLAGS.output_dir,
-						'{}.txt'.format(
-							os.path.basename(im_fn).split('.')[0]))
-					#res_file = './docr/test_results/converted_JSON.txt'
+					#res_file = os.path.join(
+						#FLAGS.output_dir,
+						#'{}.txt'.format(
+							#os.path.basename(im_fn).split('.')[0]))
+					res_file = 'docr/test_results/converted_JSON.txt'
 							
 					with open(res_file, 'w') as f:
 						detected_information = []
@@ -337,15 +338,16 @@ def checkOCR(OCRdata):
 				
 				if not FLAGS.no_write_images:
 					# Write to Image
-					img_path = os.path.join(FLAGS.output_dir, os.path.basename(im_fn))
+					#img_path = os.path.join(FLAGS.output_dir, os.path.basename(im_fn))
+					img_path = 'docr/test_results/converted_JSON.jpg'
 					#cv2.imwrite(img_path, im[:, :, ::-1])
 					cv2.imwrite(img_path, im_write)
 					# Write to JSON File
-					output_file = os.path.join(
-						FLAGS.output_dir,
-						'{}_data.txt'.format(
-							os.path.basename(im_fn).split('.')[0]))
-					#output_file = './docr/test_results/converted_JSON_data.txt'
+					#output_file = os.path.join(
+						#FLAGS.output_dir,
+						#'{}_data.txt'.format(
+							#os.path.basename(im_fn).split('.')[0]))
+					output_file = 'docr/test_results/converted_JSON_data.txt'
 					write_to_json_file(output_file,detected_information)
 					return JsonResponse("SER: "+SERN+" ; PNR: "+PNRN,safe=False)
 					
