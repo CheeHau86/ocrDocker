@@ -14,6 +14,7 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN apt-get install tesseract-ocr -y
 RUN apt-get update
-ADD ./ /code/
+COPY ./ /code/
+RUN ls -la /code/*
 EXPOSE 8088
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8088"]
