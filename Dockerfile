@@ -12,7 +12,6 @@ RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
-RUN apt-get install tesseract-ocr -y
 RUN apt-get update
 COPY ./ /code/
 RUN ls -la /code/*/*
