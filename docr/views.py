@@ -25,7 +25,7 @@ import base64
 
 tf.app.flags.DEFINE_string('test_data_path', './docr/test_images/', '')
 tf.app.flags.DEFINE_string('checkpoint_path', './models/model_150ksteps/', '')
-tf.app.flags.DEFINE_string('output_dir', '.docr/test_results/', '')
+tf.app.flags.DEFINE_string('output_dir', './docr/test_results/', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_bool('no_write_images', False, 'do not write images')
 
