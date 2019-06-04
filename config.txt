@@ -1,1 +1,1 @@
-{"Input File": "./test_images", "Checkpoint Path": "./models/model_150ksteps/", "Output Image Path": "./test_results/", "Output File": "./data.txt"}
+{"Input File": "./docr/test_images", "Checkpoint Path": "./models/model_150ksteps/", "Output Image Path": "./docr/test_results/", "Output File": "./data.txt"}
