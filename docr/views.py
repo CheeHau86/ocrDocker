@@ -331,6 +331,7 @@ def checkOCR(OCRdata):
 									detected_information.append(text)
 								#cannot write, temp ignore write to file
 								f.write('{},{},{},{},{},{},{},{},{}\r\n'.format(box[0, 0], box[0, 1], box[1, 0], box[1, 1], box[2, 0], box[2, 1], box[3, 0], box[3, 1], text))
+								print('{},{},{},{},{},{},{},{},{}\r\n'.format(box[0, 0], box[0, 1], box[1, 0], box[1, 1], box[2, 0], box[2, 1], box[3, 0], box[3, 1], text))
 						ocr_duration = time.time() - start_time_ocr
 						print('----- [optical character recognition timing] {:.4f} seconds -----'.format(ocr_duration))
 					print('----- [total timing] {:.4f} seconds -----'.format(duration+ocr_duration))
