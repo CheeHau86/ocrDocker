@@ -302,11 +302,12 @@ def checkOCR(OCRdata):
 
 				# save to file
 				if boxes is not None:
-					res_file = os.path.join(
-						FLAGS.output_dir,
-						'{}.txt'.format(
-							os.path.basename(im_fn).split('.')[0]))
-
+					#res_file = os.path.join(
+						#FLAGS.output_dir,
+						#'{}.txt'.format(
+							#os.path.basename(im_fn).split('.')[0]))
+					res_file = './docr/test_results/converted_JSON.txt'
+							
 					with open(res_file, 'w') as f:
 						detected_information = []
 						start_time_ocr = time.time()
@@ -340,10 +341,11 @@ def checkOCR(OCRdata):
 					#cv2.imwrite(img_path, im[:, :, ::-1])
 					cv2.imwrite(img_path, im_write)
 					# Write to JSON File
-					output_file = os.path.join(
-						FLAGS.output_dir,
-						'{}_data.txt'.format(
-							os.path.basename(im_fn).split('.')[0]))
+					#output_file = os.path.join(
+						#FLAGS.output_dir,
+						#'{}_data.txt'.format(
+							#os.path.basename(im_fn).split('.')[0]))
+					output_file = './docr/test_results/converted_JSON_data.txt'
 					write_to_json_file(output_file,detected_information)
 					return JsonResponse("SER: "+SERN+" ; PNR: "+PNRN,safe=False)
 					
