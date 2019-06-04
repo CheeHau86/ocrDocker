@@ -8,6 +8,8 @@ $ sudo apt-get install -y docker-ce
 $ sudo usermod -aG docker ${USER}
 $ sudo apt-get install git
 $ git clone https://github.com/CheeHau86/ocrDocker.git 
+$ sudo apt-get install tesseract-ocr -y
+$ sudo apt-get update
 
 #log out and log in again to take effect
 #the model file is 370+Mb, unable to upload to github. we need to manually upload into server 
