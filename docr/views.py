@@ -46,7 +46,7 @@ def get_images():
     '''
     files = []
     exts = ['jpg', 'png', 'jpeg', 'JPG']
-    for parent, dirnames, filenames in os.walk(docr/test_images/):
+    for parent, dirnames, filenames in os.walk('docr/test_images/'):
         for filename in filenames:
             for ext in exts:
                 if filename.endswith(ext):
