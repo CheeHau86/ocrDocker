@@ -230,12 +230,11 @@ def checkOCR(OCRdata):
 	image_base64=json.loads(OCRdata.body)
 	
 	imgdata = base64.b64decode(image_base64)
-	#filename = './docr/test_images/converted_JSON.jpg'  
-	filename = os.path.join(FLAGS.test_data_path, 'converted_JSON.jpg''
+	filename = './docr/test_images/converted_JSON.jpg'  
 	#filename = '../saeOcrDjango/test_images/converted_JSON.jpg'
 	with open(filename, 'wb') as f:
 		f.write(imgdata)
-	
+	detected_information = []
 	import os
 	os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpu_list
 	tesseract_config = ('-l eng --oem 1 --psm 6')
@@ -300,7 +299,7 @@ def checkOCR(OCRdata):
 
 				duration = time.time() - start_time
 				print('----- [scene text detection timing] {:.4f} seconds -----'.format(duration))
-
+				
 				# save to file
 				if boxes is not None:
 					res_file = os.path.join(
@@ -310,7 +309,7 @@ def checkOCR(OCRdata):
 					#res_file = './docr/test_results/converted_JSON.txt'
 							
 					with open(res_file, 'w') as f:
-						detected_information = []
+						#detected_information = []
 						start_time_ocr = time.time()
 						for box in boxes:
 							# To avoid submitting errors, sort the 4 corners of the box
