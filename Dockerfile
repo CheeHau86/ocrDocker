@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:2.7
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
@@ -8,7 +8,7 @@ RUN apt-get install python-pip python-dev nginx git -y
 RUN pip3 install virtualenv
 RUN virtualenv saeocrenv
 CMD ["source", "saeocrenv/bin/activate"]
-RUN apt-get install python-opencv -y
+RUN apt-get install python3-opencv -y
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN apt install tesseract-ocr -y
