@@ -1,10 +1,10 @@
-FROM python:2.7
+FROM python:2.7.15rc1
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 RUN apt-get update
 RUN apt-get install python3-pip -y
-RUN apt-get install python-pip python-dev nginx git -y
+RUN apt-get install python-pip python-dev -y
 RUN pip3 install virtualenv
 RUN virtualenv saeocrenv
 CMD ["source", "saeocrenv/bin/activate"]
