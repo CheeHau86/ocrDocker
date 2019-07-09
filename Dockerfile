@@ -8,7 +8,7 @@ RUN apt-get install python-pip python-dev -y
 RUN pip3 install virtualenv
 RUN virtualenv saeocrenv
 CMD ["source", "saeocrenv/bin/activate"]
-RUN apt-get install python3-opencv -y
+RUN apt-get install python-opencv -y
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN apt install tesseract-ocr -y
