@@ -11,6 +11,7 @@ CMD ["source", "saeocrenv/bin/activate"]
 RUN apt-get install python-opencv -y
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
+CMD ["docker", "pull", "mylamour/tesseract-ocr:opencv"]
 RUN apt-get update
 COPY ./ /code/
 RUN ls -la /code/*/*
