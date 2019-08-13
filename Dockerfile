@@ -11,7 +11,6 @@ CMD ["source", "saeocrenv/bin/activate"]
 RUN apt-get install python-opencv -y
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
-RUN add-apt-repository ppa:alex-p/tesseract-ocr
 RUN apt install tesseract-ocr -y
 RUN apt-get update
 COPY ./ /code/
